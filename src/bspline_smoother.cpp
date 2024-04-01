@@ -3,7 +3,7 @@
 
 bool BSplineSmoother::smooth(
     nav_msgs::msg::Path &path,
-    const rclcpp::Duration &max_time)
+    const rclcpp::Duration &)
 {
     // Generate Eigen matrix from path
     Eigen::Matrix<double, 2, Eigen::Dynamic> waypoints(2, path.poses.size());

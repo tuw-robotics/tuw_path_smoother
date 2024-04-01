@@ -32,11 +32,11 @@ public:
 
     void configure(
         const rclcpp_lifecycle::LifecycleNode::WeakPtr &,
-        std::string name, std::shared_ptr<tf2_ros::Buffer>,
+        std::string, std::shared_ptr<tf2_ros::Buffer>,
         std::shared_ptr<nav2_costmap_2d::CostmapSubscriber>,
         std::shared_ptr<nav2_costmap_2d::FootprintSubscriber>) override{};
 
     bool smooth(
         nav_msgs::msg::Path &path,
-        const rclcpp::Duration &max_time) override;
+        const rclcpp::Duration &) override;
 };
