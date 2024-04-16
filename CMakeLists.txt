@@ -25,7 +25,7 @@ include_directories(
   ${EIGEN3_INCLUDE_DIR}
 )
 
-set(library_name ${PROJECT_NAME}_plugin)
+set(library_name ${PROJECT_NAME})
 add_library(${library_name} SHARED
   src/bspline_smoother.cpp src/spline.cpp
 )
@@ -45,15 +45,20 @@ ament_target_dependencies(bspline_smoother_node
 )
 
 install(TARGETS bspline_smoother_node
-  DESTINATION lib/${PROJECT_NAME})
-
-
+  DESTINATION lib/${PROJECT_NAME}
+)
 install(DIRECTORY include/
   DESTINATION include/
 )
-
 install(FILES plugin.xml
   DESTINATION share/${PROJECT_NAME}
+)
+install(
+  TARGETS
+    ${library_name}
+  ARCHIVE DESTINATION lib
+  LIBRARY DESTINATION lib
+  RUNTIME DESTINATION bin
 )
 
 pluginlib_export_plugin_description_file(nav2_core plugin.xml)

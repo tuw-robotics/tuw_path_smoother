@@ -1,6 +1,6 @@
 <class_libraries>
     <library path="tuw_path_smoother">
-        <class type="tuw_path_smoother::BSplineSmoother" base_class_type="nav2_core::Smoother">
+        <class name="tuw_path_smoother/BSplineSmoother" type="BSplineSmoother" base_class_type="nav2_core::Smoother">
             <description>Basic smoothing using with a spline</description>
         </class>
     </library>

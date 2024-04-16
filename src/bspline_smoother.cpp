@@ -1,6 +1,9 @@
 
 #include "tuw_path_smoother/bspline_smoother.hpp"
 
+#include "pluginlib/class_loader.hpp"
+#include "pluginlib/class_list_macros.hpp"
+
 bool BSplineSmoother::smooth(
     nav_msgs::msg::Path &path,
     const rclcpp::Duration &)
@@ -78,3 +81,8 @@ bool BSplineSmoother::smooth(
 
     return true;
 };
+
+// Register this smoother as a nav2_core plugin
+PLUGINLIB_EXPORT_CLASS(
+  BSplineSmoother,
+  nav2_core::Smoother)
